@@ -1,0 +1,39 @@
+﻿In the previous chapter, you were introduced to the Java print statement. 
+
+System.out.println("Rather a lot to type");
+
+You may observe that this is not only a lot to type (and thus many redundant tendon hits), but also rather noisy to read. Most languages before and after Java have taken a much simpler approach to such a commonly used statement. 
+The Access Control chapter introduces the concept of the static import that was added to Java SE5, and creates a tiny library to simplify writing print statements. However, you don t need to know those details in order to begin using that library. We can rewrite the program from the last chapter using this new library: 
+
+//: operators/HelloDate.java 
+
+import java.util.*; 
+import static net.mindview.util.Print.*; 
+
+/*
+ * Some java doc
+ */
+public class HelloDate { 
+	public static void main(String[] args) { 
+		print("Hello, it is: "); 
+		print(new Date()); 
+	}
+}
+
+The results are much cleaner. Notice the insertion of the static keyword in the second import statement. 
+In order to use this library, you must download this book code package from www.MindView.net or one of its mirrors. Unzip the code tree and add the root directory of that code tree to your computer CLASSPATH environment variable. (You will eventually get a full introduction to the classpath, but you might as well get used to struggling with it early. Alas, it is one of the more common battles you will have with Java.) 
+Конфликты имен становятся источником серьезных проблем при разработке повторно используемого кода. Как бы тщательно вы ни подбирали имена для своих классов и методов, кто-нибудь может использовать это же имя для других целей. При использовании простых названий проблема лишь усугубляется — такие имена с большей вероятностью будут задействованы кем-либо еще, кто также захочет пользоваться простыми словами. Такие имена, как set, get, clear и т. д., встречаются очень часто, и конфликты при их использовании оказываются практически неизбежными.
+Во многих языках программирования предлагается стандартное решение - использование “префикса пакета” перед каждым именем класса, типа, глобальной функции и так далее. Соглашения о префиксах создают контекст имен (naming context), который предотвращает конфликты имен одного пакета с именами другого. Обычно такие префиксы имеют длину в несколько символов и являются сокращением названия пакета - например, Xt для “X Toolkit” или WIN32 для 32-разрядного Windows API.
+num:
+for (int num = 2; num <= 100; num++) {
+int n = (int)Math.sqrt(num)+1;
+while (--n != 0) {
+if (num%n==0) {
+continue num;
+}
+}
+System.out.print(num+" ");
+}
+Результатом будут простые числа, меньшие 100:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+Легко видеть, что применяются одноименные переменная и метка num, причем последняя используется для выхода из внутреннего цикла while на внешний for.

@@ -1,0 +1,33 @@
+﻿In the previous chapter, you wre introuced to the Jva print saement. 
+System.out.println("Rather a lot to type");
+You may obsrve tha this is not only a lot to type (and thus many redundant tedon hits), but also rathe noisy to read. Most languages bfore and after Jva have taken a much simpler approch to such a commonly used saement. 
+The Acces Control chapter introduces the conept of the static import tha was aed to Jva SE5, and creates a tiny library to simplify writing print statement. However, you don t need to know those details in oder to begin using tha library. We can rwite the program from the last chapter using this new library: 
+//: operators/HelloDate.java 
+import java.util.*; 
+import static net.mindview.util.Print.*; 
+/*
+ * Some java doc
+ */
+public class HelloDate { 
+	public static void main(String[] args) { 
+		print("Hello, it is: "); 
+		print(new Date()); 
+	}
+}
+The reults are much cleaner. Notice the iserton of the static keyword in the second import saement. 
+In oder to use this library, you must downloa this book code package from w.MindView.net or one of its mirrors. Unzip the code tre and ad the root directory of tha code tre to your computer CLASSPATH environmnt variable. (You wil evntually get a ful itroducton to the classpath, but you might as wel get used to struling with it early. Alas, it is one of the more common battles you wil have with Jva.) 
+Конфликты имен становтя источнком серьезных проблем при разаботке пвтрно испльзуемго кода. Как бы тщаельно вы ни подбрали имена для своих классов и методов, кто-нибудь может исползовать это же имя для других целей. При использован простых назваий проблема лишь усгблется — такие имена с большей вероятностью будут задействованы кем-либо ещ, кто также захочет пользоваться простыми словами. Такие имена, ка set, get, clear и т. д., встречаются очень часто, и конфлиты при их использован оказываются практчески незбежыми.
+Во многих языках программирования предлагается стандартное ршние - использоване “префикса пкета” перед каждым иенем клсса, типа, глобальной функци и так дале. Соглашения о префиксах создают конест имен (namig conext), который предовращает конфлиты имен однг пкета с именам другго. Обычно такие префиксы имеют длину в несклько симолов и явлютс сокращением назваия пкета - напимер, Xt для “X Toolkit” ил WIN32 для 32-разяднго Windows API.
+num:
+for (int num = 2; num <= 100; num++) {
+int n = (int)Math.sqrt(num)+1;
+while (--n != 0) {
+if (num%n==0) {
+continue num;
+}
+}
+System.out.print(num+" ");
+}
+Результатом будут простые числа, мньшие 100:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+Легко видеть, что применются однимнные переменная и метка num, причем последня используется для выхода из внутреннего цикла while на внешний for.
